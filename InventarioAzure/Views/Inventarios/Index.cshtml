@@ -4,74 +4,114 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Entradas Stock
-            </th>
-            <th>
-                Salidas Stock
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Observaciones)
-            </th>
-            <th>
-                Codigo Producto
-            </th>
-            <th>
-                Estante
-            </th>
-            <th>
-               Fila
-            </th>
-            <th>
-                Proveedor
-            </th>
-            <th>
-                Sucursal
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Entradastock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salidastock)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observaciones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodproductoNavigation.Codproducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEstanteNavigation.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdFilaNavigation.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Empresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdSucursalNavigation.Nombre)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Idregistro">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Idregistro">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Idregistro">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Listado Inventario</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Inventario</h3>
+                        </div>
+                            <p>
+                                <a asp-action="Create">Create New</a>
+                            </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Entradastock)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Salidastock)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Observaciones)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdFila)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CodproductoNavigation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdEstanteNavigation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdProveedorNavigation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdSucursalNavigation)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        @foreach (var item in Model) {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Entradastock)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Salidastock)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Observaciones)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdFila)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CodproductoNavigation.Codproducto)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdEstanteNavigation.IdEstante)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdProveedorNavigation.IdProveedor)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdSucursalNavigation.IdSucursal)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
+                                    </td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Idregistro">Edit</a> |
+                                        <a asp-action="Details" asp-route-id="@item.Idregistro">Details</a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Idregistro">Delete</a>
+                                    </td>
+                                </tr>
+                        }
+                            </tbody>
+                        </table>
+                         </div>
+                    <!-- /.card -->
+
+
+                </div>
+                <!--/.col (left) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>

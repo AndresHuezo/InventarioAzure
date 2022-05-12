@@ -4,27 +4,50 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div>
-    <h4>Fila</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            Estante
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstanteNavigation.Nombre)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.IdFila">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Detalle Inventario</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <dl class="row">
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEstanteNavigation)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.IdEstanteNavigation.IdEstante)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.IdFila">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+                 </div>
+                    <!-- /.card -->
+
+
+                </div>
+                <!--/.col (left) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
 </div>
