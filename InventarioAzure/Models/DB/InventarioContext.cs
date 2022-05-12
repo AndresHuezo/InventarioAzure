@@ -30,9 +30,9 @@ namespace InventarioAzure.Models.DB
             if (!optionsBuilder.IsConfigured)
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                //optionsBuilder.UseSqlServer("Persist Security Info=False;User ID=AdminUTEC;Password=Azure2022!;Initial Catalog=Inventario;Server=aplicacionmvc.database.windows.net");
-                //optionsBuilder.UseSqlServer("Data Source=SQL8001.site4now.net;Initial Catalog=db_a858ce_inventario;User Id=db_a858ce_inventario_admin;Password=Andres09081996");
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1LNO69V\\ANDRESHUEZO;Initial Catalog=Inventario;Integrated Security=True");
+                //optionsBuilder.UseSqlServer("Server=localhost;Database=Inventario; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=SQL8001.site4now.net;Initial Catalog=db_a858ce_inventario;User Id=db_a858ce_inventario_admin;Password=Andres09081996");
+
             }
         }
 
@@ -134,6 +134,11 @@ namespace InventarioAzure.Models.DB
                     .WithMany(p => p.Inventarios)
                     .HasForeignKey(d => d.IdEstante)
                     .HasConstraintName("FK_inventario_estante");
+
+                entity.HasOne(d => d.IdFilaNavigation)
+                    .WithMany(p => p.Inventarios)
+                    .HasForeignKey(d => d.IdFila)
+                    .HasConstraintName("FK_Inventario_Fila");
 
                 entity.HasOne(d => d.IdProveedorNavigation)
                     .WithMany(p => p.Inventarios)

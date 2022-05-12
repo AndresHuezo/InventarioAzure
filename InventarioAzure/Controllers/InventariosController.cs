@@ -22,7 +22,7 @@ namespace InventarioAzure.Controllers
         // GET: Inventarios
         public async Task<IActionResult> Index()
         {
-            var inventarioContext = _context.Inventarios.Include(i => i.CodproductoNavigation).Include(i => i.IdEstanteNavigation).Include(i => i.IdProveedorNavigation).Include(i => i.IdSucursalNavigation).Include(i => i.IdUsuarioNavigation);
+            var inventarioContext = _context.Inventarios.Include(i => i.CodproductoNavigation).Include(i => i.IdEstanteNavigation).Include(i => i.IdFilaNavigation).Include(i => i.IdProveedorNavigation).Include(i => i.IdSucursalNavigation).Include(i => i.IdUsuarioNavigation);
             return View(await inventarioContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace InventarioAzure.Controllers
             var inventario = await _context.Inventarios
                 .Include(i => i.CodproductoNavigation)
                 .Include(i => i.IdEstanteNavigation)
+                .Include(i => i.IdFilaNavigation)
                 .Include(i => i.IdProveedorNavigation)
                 .Include(i => i.IdSucursalNavigation)
                 .Include(i => i.IdUsuarioNavigation)
@@ -53,10 +54,11 @@ namespace InventarioAzure.Controllers
         public IActionResult Create()
         {
             ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto");
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante");
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "IdProveedor");
-            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "IdSucursal");
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario");
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre");
+            ViewData["IdFila"] = new SelectList(_context.Filas, "IdFila", "Nombre");
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "Empresa");
+            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "Nombre");
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Usuario1");
             return View();
         }
 
@@ -73,11 +75,12 @@ namespace InventarioAzure.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto", inventario.Codproducto);
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", inventario.IdEstante);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "IdProveedor", inventario.IdProveedor);
-            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "IdSucursal", inventario.IdSucursal);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", inventario.IdUsuario);
+            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto");
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre");
+            ViewData["IdFila"] = new SelectList(_context.Filas, "IdFila", "Nombre");
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "Empresa");
+            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "Nombre");
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Usuario1"); 
             return View(inventario);
         }
 
@@ -94,11 +97,12 @@ namespace InventarioAzure.Controllers
             {
                 return NotFound();
             }
-            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto", inventario.Codproducto);
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", inventario.IdEstante);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "IdProveedor", inventario.IdProveedor);
-            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "IdSucursal", inventario.IdSucursal);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", inventario.IdUsuario);
+            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto");
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre");
+            ViewData["IdFila"] = new SelectList(_context.Filas, "IdFila", "Nombre");
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "Empresa");
+            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "Nombre");
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Usuario1"); 
             return View(inventario);
         }
 
@@ -134,11 +138,12 @@ namespace InventarioAzure.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto", inventario.Codproducto);
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", inventario.IdEstante);
-            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "IdProveedor", inventario.IdProveedor);
-            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "IdSucursal", inventario.IdSucursal);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", inventario.IdUsuario);
+            ViewData["Codproducto"] = new SelectList(_context.Productos, "Codproducto", "Codproducto");
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre");
+            ViewData["IdFila"] = new SelectList(_context.Filas, "IdFila", "Nombre");
+            ViewData["IdProveedor"] = new SelectList(_context.Proveedors, "IdProveedor", "Empresa");
+            ViewData["IdSucursal"] = new SelectList(_context.Sucursals, "IdSucursal", "Nombre");
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Usuario1"); 
             return View(inventario);
         }
 
@@ -153,6 +158,7 @@ namespace InventarioAzure.Controllers
             var inventario = await _context.Inventarios
                 .Include(i => i.CodproductoNavigation)
                 .Include(i => i.IdEstanteNavigation)
+                .Include(i => i.IdFilaNavigation)
                 .Include(i => i.IdProveedorNavigation)
                 .Include(i => i.IdSucursalNavigation)
                 .Include(i => i.IdUsuarioNavigation)

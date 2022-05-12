@@ -18,6 +18,7 @@ namespace InventarioAzure.Models.DB
 
         public virtual Producto? CodproductoNavigation { get; set; }
         public virtual Estante? IdEstanteNavigation { get; set; }
+        public virtual Fila? IdFilaNavigation { get; set; }
         public virtual Proveedor? IdProveedorNavigation { get; set; }
         public virtual Sucursal? IdSucursalNavigation { get; set; }
         public virtual Usuario? IdUsuarioNavigation { get; set; }
