@@ -11,13 +11,13 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Entradastock)
+            Entrada Stock
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Entradastock)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Salidastock)
+            Salida Stock
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Salidastock)
@@ -29,40 +29,40 @@
             @Html.DisplayFor(model => model.Observaciones)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdFila)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdFila)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CodproductoNavigation)
+            Codigo Producto
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CodproductoNavigation.Codproducto)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstanteNavigation)
+            Estante
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstanteNavigation.IdEstante)
+            @Html.DisplayFor(model => model.IdEstanteNavigation.Nombre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdProveedorNavigation)
+            Fila
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdProveedorNavigation.IdProveedor)
+            @Html.DisplayFor(model => model.IdFilaNavigation.Nombre)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdSucursalNavigation)
+            Proveedor
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdSucursalNavigation.IdSucursal)
+            @Html.DisplayFor(model => model.IdProveedorNavigation.Empresa)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            Sucursal
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuarioNavigation.IdUsuario)
+            @Html.DisplayFor(model => model.IdSucursalNavigation.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            Usuario
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdUsuarioNavigation.Usuario1)
         </dd>
     </dl>
 </div>

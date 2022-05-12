@@ -49,7 +49,8 @@ namespace InventarioAzure.Controllers
         public IActionResult Create()
         {
             
-            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Idcategoria");
+            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Nombre");
+            //ViewDara["nombre"]= new SelectList(_context.Categorias,)
             
             return View();
         }
@@ -67,7 +68,7 @@ namespace InventarioAzure.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Idcategoria", producto.Idcategoria);
+            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Nombre", producto.Idcategoria);
             return View(producto);
         }
 
@@ -84,7 +85,7 @@ namespace InventarioAzure.Controllers
             {
                 return NotFound();
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Idcategoria", producto.Idcategoria);
+            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Nombre", producto.Idcategoria);
             return View(producto);
         }
 
@@ -120,7 +121,7 @@ namespace InventarioAzure.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Idcategoria", producto.Idcategoria);
+            ViewData["Idcategoria"] = new SelectList(_context.Categorias, "Idcategoria", "Nombre", producto.Idcategoria);
             return View(producto);
         }
 

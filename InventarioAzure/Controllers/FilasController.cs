@@ -48,7 +48,7 @@ namespace InventarioAzure.Controllers
         // GET: Filas/Create
         public IActionResult Create()
         {
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante");
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace InventarioAzure.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", fila.IdEstante);
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre", fila.IdEstante);
             return View(fila);
         }
 
@@ -82,7 +82,7 @@ namespace InventarioAzure.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", fila.IdEstante);
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre", fila.IdEstante);
             return View(fila);
         }
 
@@ -118,7 +118,7 @@ namespace InventarioAzure.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "IdEstante", fila.IdEstante);
+            ViewData["IdEstante"] = new SelectList(_context.Estantes, "IdEstante", "Nombre", fila.IdEstante);
             return View(fila);
         }
 
