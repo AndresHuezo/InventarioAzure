@@ -15,4 +15,10 @@ html {
 
 body {
   margin-bottom: 60px;
+
+}
+
+.content-wrapper {
+    
+    background-color:whitesmoke !important;
 }
