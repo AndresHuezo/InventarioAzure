@@ -31,7 +31,7 @@ namespace InventarioAzure.Models.DB
             {
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 //optionsBuilder.UseSqlServer("Persist Security Info=False;User ID=AdminUTEC;Password=Azure2022!;Initial Catalog=Inventario;Server=aplicacionmvc.database.windows.net");
-                optionsBuilder.UseSqlServer("Data Source=35.184.188.222;Initial Catalog=Inventario;User Id=sqlserver;Password=3wi3HBw0DKw8AlPO");
+                optionsBuilder.UseSqlServer("Data Source=34.72.70.195;Initial Catalog=Inventario;User Id=sqlserver;Password=3wi3HBw0DKw8AlPO");
                 //optionsBuilder.UseSqlServer("Data Source=DESKTOP-1LNO69V\\ANDRESHUEZO;Initial Catalog=Inventario;Integrated Security=True");
             }
         }
