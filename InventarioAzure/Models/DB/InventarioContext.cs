@@ -29,10 +29,8 @@ namespace InventarioAzure.Models.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                //optionsBuilder.UseSqlServer("Persist Security Info=False;User ID=AdminUTEC;Password=Azure2022!;Initial Catalog=Inventario;Server=aplicacionmvc.database.windows.net");
-                optionsBuilder.UseSqlServer("Data Source=34.72.70.195;Initial Catalog=Inventario;User Id=sqlserver;Password=3wi3HBw0DKw8AlPO");
-                //optionsBuilder.UseSqlServer("Data Source=DESKTOP-1LNO69V\\ANDRESHUEZO;Initial Catalog=Inventario;Integrated Security=True");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=localhost;Database=Inventario;Trusted_Connection=True;");
             }
         }
 
@@ -41,7 +39,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.HasKey(e => e.Idcategoria)
-                    .HasName("PK__Categori__140587C77CB4B3DF");
+                    .HasName("PK__Categori__140587C709433E1F");
 
                 entity.Property(e => e.Idcategoria).HasColumnName("idcategoria");
 
@@ -59,7 +57,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Estante>(entity =>
             {
                 entity.HasKey(e => e.IdEstante)
-                    .HasName("PK__Estante__A83CC9D982ED5E79");
+                    .HasName("PK__Estante__A83CC9D941EE2D53");
 
                 entity.ToTable("Estante");
 
@@ -74,7 +72,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Fila>(entity =>
             {
                 entity.HasKey(e => e.IdFila)
-                    .HasName("PK__Fila__775AFF8E0742E1A3");
+                    .HasName("PK__Fila__775AFF8EFE22543F");
 
                 entity.ToTable("Fila");
 
@@ -96,7 +94,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Inventario>(entity =>
             {
                 entity.HasKey(e => e.Idregistro)
-                    .HasName("PK__Inventar__917BB529D4EB90F4");
+                    .HasName("PK__Inventar__917BB52907A49C4C");
 
                 entity.ToTable("Inventario");
 
@@ -135,6 +133,11 @@ namespace InventarioAzure.Models.DB
                     .HasForeignKey(d => d.IdEstante)
                     .HasConstraintName("FK_inventario_estante");
 
+                entity.HasOne(d => d.IdFilaNavigation)
+                    .WithMany(p => p.Inventarios)
+                    .HasForeignKey(d => d.IdFila)
+                    .HasConstraintName("FK_Inventario_Fila");
+
                 entity.HasOne(d => d.IdProveedorNavigation)
                     .WithMany(p => p.Inventarios)
                     .HasForeignKey(d => d.IdProveedor)
@@ -154,7 +157,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(e => e.Codproducto)
-                    .HasName("PK__Producto__7FC39CF53AC7AEFD");
+                    .HasName("PK__Producto__7FC39CF5CC4C94A0");
 
                 entity.Property(e => e.Codproducto)
                     .HasMaxLength(50)
@@ -188,7 +191,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Proveedor>(entity =>
             {
                 entity.HasKey(e => e.IdProveedor)
-                    .HasName("PK__Proveedo__A3FA8E6B79F10C83");
+                    .HasName("PK__Proveedo__A3FA8E6B6FF0FAEE");
 
                 entity.ToTable("Proveedor");
 
@@ -212,7 +215,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Sucursal>(entity =>
             {
                 entity.HasKey(e => e.IdSucursal)
-                    .HasName("PK__Sucursal__F707694C4276ED16");
+                    .HasName("PK__Sucursal__F707694C13B2BC2C");
 
                 entity.ToTable("Sucursal");
 
@@ -241,7 +244,7 @@ namespace InventarioAzure.Models.DB
             modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
-                    .HasName("PK__Usuarios__645723A6F7FAE593");
+                    .HasName("PK__Usuarios__645723A631F4F3B7");
 
                 entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
 
