@@ -79,22 +79,22 @@
                                         @Html.DisplayFor(modelItem => item.Observaciones)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdFila)
+                                        @Html.DisplayFor(modelItem => item.IdFilaNavigation.Nombre)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.CodproductoNavigation.Codproducto)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdEstanteNavigation.IdEstante)
+                                        @Html.DisplayFor(modelItem => item.IdEstanteNavigation.Nombre)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdProveedorNavigation.IdProveedor)
+                                        @Html.DisplayFor(modelItem => item.IdProveedorNavigation.Empresa)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdSucursalNavigation.IdSucursal)
+                                        @Html.DisplayFor(modelItem => item.IdSucursalNavigation.Nombre)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.IdUsuario)
+                                        @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Nombre)
                                     </td>
                                     <td>
                                         <a asp-action="Edit" asp-route-id="@item.Idregistro">Edit</a> |

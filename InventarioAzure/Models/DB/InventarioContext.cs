@@ -29,8 +29,11 @@ namespace InventarioAzure.Models.DB
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=Inventario;Trusted_Connection=True;");
+                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                //optionsBuilder.UseSqlServer("Server=localhost;Database=Inventario;Trusted_Connection=True;");
+                //optionsBuilder.UseSqlServer("Server=SQL8003.site4now.net; Database=db_a872bb_inventario;Trusted_Connection=yes; User Id=andreshuezo0908-001 ;Password=Andres09081996");
+                //optionsBuilder.UseSqlServer("Provider=SQLOLEDB;Data Source=SQL8003.site4now.net;Initial Catalog=db_a872bb_inventario;User Id=db_a872bb_inventario_admin;Password=Andres09081996");
+                optionsBuilder.UseSqlServer("Data Source = SQL8003.site4now.net; Initial Catalog = db_a872bb_inventario; User Id = db_a872bb_inventario_admin; Password = Andres09081996;");
             }
         }
 
